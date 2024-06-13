@@ -1,20 +1,26 @@
 {
-    "version": 2,
-    "builds": [
-      {
-        "src": "index.js",
-        "use": "@vercel/node"
+  "version": 2,
+  "builds": [
+    {
+      "src": "index.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "vite.config.js",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist"
       }
-    ],
-    "routes": [
-      {
-        "src": "/api/(.*)",
-        "dest": "https://server-omega-blond-77.vercel.app/api/jokes"
-      },
-      {
-        "src": "/(.*)",
-        "dest": "/index.js"
-      }
-    ]
-  }
-  
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "https://server-omega-blond-77.vercel.app/api/jokes"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ]
+}
